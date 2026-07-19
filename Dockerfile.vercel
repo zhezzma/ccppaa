@@ -23,6 +23,6 @@ COPY config.yaml /app/config.yaml
 RUN cp /app/config.yaml /app/config.example.yaml
 
 ENV TZ=Asia/Shanghai
-EXPOSE 7860
+EXPOSE 80
 
 CMD ["./cli-proxy-api", "--config", "/app/config.yaml"]
