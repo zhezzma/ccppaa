@@ -5,6 +5,7 @@ USER root
 # bash 在 Debian 里单独装（libc6 已预装）
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \
+    socat \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -26,4 +27,6 @@ ENV TZ=Asia/Shanghai
 ENV PORT=80
 EXPOSE 80
 
-CMD ["./cli-proxy-api", "--config", "/app/config.yaml"]
+# 1. 让 cli-proxy-api 在后台静默启动（它会听在 7860）
+# 2. 用 socat 在前台监听 3000 端口，并把所有流量转发给本地的 7860
+CMD ["/bin/bash", "-c", "./cli-proxy-api --config /app/config.yaml & socat TCP-LISTEN:80,fork TCP:127.0.0.1:7860"]
