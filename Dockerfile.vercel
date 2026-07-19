@@ -1,5 +1,5 @@
 #FROM eceasy/cli-proxy-api:latest
-FROM eceasy/cli-proxy-api:v7.1.19
+FROM eceasy/cli-proxy-api:v7.2.82
 
 
 USER root
