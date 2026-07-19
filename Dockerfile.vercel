@@ -26,4 +26,4 @@ ENV TZ=Asia/Shanghai
 ENV PORT=7860
 EXPOSE 7860
 
-CMD ["./cli-proxy-api", "--config", "/app/config.yaml", "--port", "7860"]
+CMD ["./cli-proxy-api", "--config", "/app/config.yaml", "-port", "7860"]
