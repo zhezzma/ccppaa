@@ -26,4 +26,4 @@ ENV TZ=Asia/Shanghai
 ENV PORT=80
 EXPOSE 80
 
-CMD ["./cli-proxy-api", "--config", "/app/config.yaml"]
+CMD ["./cli-proxy-api", "--config", "/app/config.yaml", "--port", "80"]
