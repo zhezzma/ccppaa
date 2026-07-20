@@ -22,8 +22,6 @@ RUN mkdir -p /tmp/.cli-proxy-api /tmp/logs /tmp/pg_cache/pgstore \
 # 复制配置文件
 COPY config.yaml /app/config.yaml
 
-# 关键：程序启动时需要此文件，否则报错
-RUN cp /app/config.yaml /app/config.example.yaml
 
 ENV TZ=Asia/Shanghai
 EXPOSE 80
