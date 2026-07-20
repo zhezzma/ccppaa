@@ -1,5 +1,5 @@
-#FROM eceasy/cli-proxy-api:latest
-FROM eceasy/cli-proxy-api:v7.2.82
+FROM eceasy/cli-proxy-api:latest
+#FROM eceasy/cli-proxy-api:v7.2.82
 
 
 USER root
@@ -31,4 +31,5 @@ EXPOSE 80
 # 1. 让 cli-proxy-api 在后台静默启动（它会听在 7860）
 # 2. 用 socat 在前台监听 3000 端口，并把所有流量转发给本地的 7860
 # 📢 注意：重点是加入了 reuseaddr,fork,max-children=20 这几个参数
-CMD ["/bin/bash", "-c", "./cli-proxy-api --config /app/config.yaml & socat TCP-LISTEN:80,reuseaddr,fork,max-children=50 TCP:127.0.0.1:7860"]
+#CMD ["/bin/bash", "-c", "./cli-proxy-api --config /app/config.yaml & socat TCP-LISTEN:80,reuseaddr,fork,max-children=50 TCP:127.0.0.1:7860"]
+CMD ["./cli-proxy-api", "--config", "/app/config.yaml"]
