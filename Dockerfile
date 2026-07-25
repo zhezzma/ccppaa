@@ -26,6 +26,7 @@ COPY config.yaml /app/config.yaml
 ENV TZ=Asia/Shanghai
 EXPOSE 80
 
+
 # 1. 让 cli-proxy-api 在后台静默启动（它会听在 7860）
 # 2. 用 socat 在前台监听 3000 端口，并把所有流量转发给本地的 7860
 # 📢 注意：重点是加入了 reuseaddr,fork,max-children=20 这几个参数
